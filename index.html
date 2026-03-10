@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ramirez Concrete – Norwalk, CA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --rust:    #1C1008;
+  --rust2:   #261608;
+  --brown:   #3D2008;
+  --amber:   #D4620A;
+  --amber2:  #F07820;
+  --sand:    #F5F0E8;
+  --white:   #FFFFFF;
+  --muted:   #8A7A6A;
+  --text:    #3A2A1A;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--text);overflow-x:hidden}
+
+/* ── NAV ─────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 56px;
+  background:rgba(28,16,8,.97);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(212,98,10,.18);
+}
+.nav-logo{display:flex;align-items:center;gap:14px}
+.nav-icon{
+  width:42px;height:42px;background:var(--amber);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.nav-icon svg{width:24px;height:24px;fill:#fff}
+.nav-brand{display:flex;flex-direction:column;gap:1px}
+.nav-brand-top{
+  font-family:'Oswald',sans-serif;
+  font-size:1.05rem;font-weight:700;letter-spacing:.1em;
+  color:var(--amber);text-transform:uppercase;line-height:1;
+}
+.nav-brand-sub{
+  font-size:.6rem;letter-spacing:.22em;color:rgba(255,255,255,.4);text-transform:uppercase;
+}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{
+  font-size:.76rem;letter-spacing:.15em;text-transform:uppercase;font-weight:500;
+  color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s;
+}
+.nav-links a:hover{color:var(--amber)}
+.nav-cta{
+  font-family:'Oswald',sans-serif;
+  font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+  background:var(--amber);color:#fff;
+  padding:10px 24px;text-decoration:none;
+  transition:background .2s;
+}
+.nav-cta:hover{background:var(--amber2)}
+
+/* ── HERO ────────────────────────────────────── */
+#hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:flex-end;
+  padding:0 56px 108px;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(170deg,rgba(28,16,8,.88) 0%,rgba(28,16,8,.45) 55%,rgba(28,16,8,.9) 100%),
+    url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1800&q=80') center/cover no-repeat;
+}
+/* diagonal accent stripe */
+.hero-stripe{
+  position:absolute;top:0;right:0;bottom:0;width:3px;
+  background:linear-gradient(to bottom,transparent 10%,var(--amber) 45%,var(--amber) 55%,transparent 90%);
+  opacity:.45;
+  right:22%;
+}
+/* yelp badge top right */
+.hero-yelp{
+  position:absolute;top:110px;right:56px;
+  background:rgba(28,16,8,.85);border:1px solid rgba(212,98,10,.3);
+  backdrop-filter:blur(8px);
+  padding:16px 22px;display:flex;flex-direction:column;align-items:center;gap:4px;
+  animation:fadeUp .9s ease .7s both;
+}
+.hero-yelp .ystars{color:var(--amber);font-size:1.05rem;letter-spacing:3px}
+.hero-yelp .ycount{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.hero-yelp .ysource{font-size:.62rem;color:var(--amber);letter-spacing:.12em;text-transform:uppercase}
+
+.hero-content{position:relative;max-width:680px}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(212,98,10,.14);border:1px solid rgba(212,98,10,.32);
+  padding:6px 16px;margin-bottom:26px;
+  font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--amber);
+  animation:fadeUp .8s ease both;
+}
+.hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--amber);border-radius:50%}
+h1{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(3.4rem,7.5vw,7rem);line-height:.92;
+  color:var(--white);
+  animation:fadeUp .9s ease .15s both;
+}
+h1 em{color:var(--amber);font-style:italic}
+.hero-sub{
+  margin-top:22px;font-size:1rem;font-weight:300;line-height:1.8;
+  color:rgba(255,255,255,.6);max-width:460px;
+  animation:fadeUp .9s ease .3s both;
+}
+.hero-btns{
+  display:flex;gap:14px;margin-top:38px;flex-wrap:wrap;
+  animation:fadeUp .9s ease .45s both;
+}
+.btn-amber{
+  font-family:'Oswald',sans-serif;
+  font-size:.84rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+  background:var(--amber);color:#fff;
+  padding:15px 34px;text-decoration:none;border:none;cursor:pointer;
+  transition:background .2s,transform .15s;
+}
+.btn-amber:hover{background:var(--amber2);transform:translateY(-2px)}
+.btn-ghost{
+  font-family:'Oswald',sans-serif;
+  font-size:.84rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+  background:transparent;color:rgba(255,255,255,.7);
+  padding:15px 34px;text-decoration:none;
+  border:1px solid rgba(255,255,255,.28);
+  transition:border-color .2s,color .2s,transform .15s;
+}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber);transform:translateY(-2px)}
+.hero-stats{
+  display:flex;gap:36px;margin-top:52px;flex-wrap:wrap;
+  animation:fadeUp .9s ease .6s both;
+}
+.hstat{display:flex;flex-direction:column;gap:2px}
+.hstat strong{
+  font-family:'Oswald',sans-serif;
+  font-size:1.7rem;font-weight:700;color:var(--amber);line-height:1;
+}
+.hstat span{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+
+/* ── TRUST BAR ───────────────────────────────── */
+#trust{background:var(--rust);padding:0;display:flex;border-bottom:1px solid rgba(212,98,10,.12)}
+.tbi{
+  flex:1;padding:26px 16px;text-align:center;
+  border-right:1px solid rgba(255,255,255,.05);
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.tbi:last-child{border-right:none}
+.tbi svg{width:20px;height:20px;color:var(--amber);flex-shrink:0}
+.tbi span{
+  font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);font-weight:500;
+}
+
+/* ── SECTION BASE ────────────────────────────── */
+section{padding:100px 56px}
+.sec-label{
+  font-family:'Oswald',sans-serif;
+  font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:12px;
+}
+h2{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(2.2rem,4vw,3.4rem);line-height:1.05;
+}
+h2.w{color:var(--white)}
+
+/* ── SERVICES ────────────────────────────────── */
+#services{background:var(--sand)}
+.svc-top{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:60px}
+.svc-top p{font-size:.97rem;color:#6A5A4A;line-height:1.85;font-weight:300}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(0,0,0,.07)}
+.svc{
+  background:var(--white);padding:36px 26px;
+  transition:background .25s,transform .25s;cursor:default;
+}
+.svc:hover{background:var(--rust);transform:translateY(-5px)}
+.svc:hover .svc-n{color:rgba(255,255,255,.08)}
+.svc:hover .svc-t{color:var(--amber)}
+.svc:hover .svc-d{color:rgba(255,255,255,.5)}
+.svc-n{
+  font-family:'Oswald',sans-serif;
+  font-size:2.8rem;font-weight:700;color:rgba(28,16,8,.07);
+  line-height:1;margin-bottom:14px;transition:color .25s;
+}
+.svc-t{
+  font-family:'DM Serif Display',serif;
+  font-size:1.1rem;margin-bottom:10px;color:var(--text);transition:color .25s;
+}
+.svc-d{font-size:.84rem;color:#6A5A4A;line-height:1.7;transition:color .25s}
+
+/* ── ABOUT ───────────────────────────────────── */
+#about{
+  background:var(--rust2);
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.about-img-wrap{position:relative}
+.about-img-wrap::before{
+  content:'';position:absolute;
+  top:-14px;left:-14px;right:14px;bottom:14px;
+  border:1px solid rgba(212,98,10,.3);z-index:0;pointer-events:none;
+}
+.about-img-wrap img{
+  position:relative;z-index:1;
+  width:100%;height:480px;object-fit:cover;
+}
+.about-stamp{
+  position:absolute;bottom:-20px;right:-20px;z-index:2;
+  background:var(--amber);padding:18px 22px;
+}
+.about-stamp p{
+  font-family:'DM Serif Display',serif;
+  font-size:.88rem;color:#fff;font-style:italic;line-height:1.5;
+}
+.about-text .sec-label{color:var(--amber)}
+.about-text h2{color:var(--white);margin-bottom:24px}
+.about-text p{color:rgba(255,255,255,.58);font-size:.95rem;line-height:1.85;font-weight:300;margin-bottom:16px}
+.owner-block{margin-top:28px;display:flex;align-items:center;gap:16px}
+.owner-block .owner-name{
+  font-family:'Oswald',sans-serif;
+  font-size:1.1rem;letter-spacing:.08em;color:var(--amber);line-height:1;
+}
+.owner-block .owner-title{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:3px}
+.pillars{margin-top:32px;display:flex;flex-direction:column;gap:11px}
+.pillar{
+  display:flex;align-items:center;gap:12px;
+  font-size:.88rem;color:rgba(255,255,255,.62);line-height:1.5;
+}
+.pillar::before{
+  content:'▸';color:var(--amber);font-size:.75rem;flex-shrink:0;
+}
+
+/* ── GALLERY ─────────────────────────────────── */
+#gallery{background:var(--rust);padding-bottom:80px}
+#gallery h2{color:var(--white);margin-bottom:10px}
+.gallery-sub{color:rgba(255,255,255,.42);font-size:.9rem;margin-bottom:48px;max-width:420px}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:260px 260px;
+  gap:3px;
+}
+.gi{overflow:hidden;position:relative}
+.gi.wide{grid-column:span 2}
+.gi.tall{grid-row:span 2}
+.gi img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .55s ease,filter .4s;
+  filter:brightness(.7)saturate(.8);
+}
+.gi:hover img{transform:scale(1.07);filter:brightness(.95)saturate(1.1)}
+.gi-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(28,16,8,.75),transparent 55%);
+  display:flex;align-items:flex-end;padding:18px;
+  opacity:0;transition:opacity .3s;
+}
+.gi:hover .gi-overlay{opacity:1}
+.gi-overlay span{
+  font-family:'Oswald',sans-serif;
+  font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);
+}
+.gallery-note{
+  text-align:center;margin-top:36px;
+  font-size:.82rem;color:rgba(255,255,255,.35);letter-spacing:.1em;
+}
+.gallery-note a{color:var(--amber);text-decoration:none}
+.gallery-note a:hover{text-decoration:underline}
+
+/* ── REVIEWS ─────────────────────────────────── */
+#reviews{background:var(--sand)}
+.reviews-wrap{display:grid;grid-template-columns:1fr 2fr;gap:72px;align-items:start}
+.rl h2{margin-bottom:18px}
+.rl p{font-size:.92rem;color:#6A5A4A;line-height:1.8;margin-bottom:28px}
+.rating-box{background:var(--rust);padding:26px 28px}
+.rating-big{
+  font-family:'Oswald',sans-serif;
+  font-size:3.8rem;font-weight:700;color:var(--amber);line-height:1;
+}
+.rating-stars{color:var(--amber);font-size:1.2rem;letter-spacing:3px;margin:4px 0}
+.rating-meta{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.yelp-btn{
+  display:inline-block;margin-top:16px;
+  background:#D32323;padding:8px 18px;
+  font-family:'Oswald',sans-serif;
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;
+  text-decoration:none;transition:background .2s;
+}
+.yelp-btn:hover{background:#b01c1c}
+.rg{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.rc{
+  background:var(--white);padding:28px;
+  border-bottom:3px solid transparent;
+  transition:border-color .25s;
+}
+.rc:hover{border-color:var(--amber)}
+.rc-stars{color:var(--amber);font-size:.88rem;letter-spacing:3px;margin-bottom:12px}
+.rc-text{
+  font-family:'DM Serif Display',serif;
+  font-size:.92rem;font-style:italic;color:var(--text);line-height:1.72;margin-bottom:16px;
+}
+.rc-author{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.rc-city{font-size:.7rem;color:var(--amber)}
+
+/* ── CONTACT ─────────────────────────────────── */
+#contact{
+  background:var(--rust2);
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+}
+.ci .sec-label{color:var(--amber)}
+.ci h2{color:var(--white);margin-bottom:22px}
+.ci p{color:rgba(255,255,255,.52);font-size:.95rem;line-height:1.82;margin-bottom:32px}
+.cdetail{display:flex;flex-direction:column;gap:18px}
+.cd{
+  display:flex;align-items:center;gap:14px;
+  padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.06);
+}
+.cd:last-child{border-bottom:none}
+.cd-icon{
+  width:38px;height:38px;flex-shrink:0;
+  background:rgba(212,98,10,.13);border:1px solid rgba(212,98,10,.25);
+  display:flex;align-items:center;justify-content:center;font-size:.95rem;
+}
+.cd-body{display:flex;flex-direction:column;gap:1px}
+.cd-lbl{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.cd-val{
+  font-family:'Oswald',sans-serif;font-size:.95rem;
+  color:var(--white);letter-spacing:.04em;text-decoration:none;transition:color .2s;
+}
+a.cd-val:hover{color:var(--amber)}
+.cf{background:rgba(255,255,255,.04);padding:40px;border:1px solid rgba(255,255,255,.07)}
+.cf h3{
+  font-family:'DM Serif Display',serif;
+  font-size:1.55rem;color:var(--white);margin-bottom:24px;
+}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ff{margin-bottom:14px}
+.ff label{
+  display:block;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.38);margin-bottom:5px;
+}
+.ff input,.ff textarea,.ff select{
+  width:100%;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  padding:11px 15px;font-family:'DM Sans',sans-serif;
+  font-size:.88rem;color:var(--white);outline:none;
+  transition:border-color .2s;
+}
+.ff input::placeholder,.ff textarea::placeholder{color:rgba(255,255,255,.22)}
+.ff input:focus,.ff textarea:focus{border-color:rgba(212,98,10,.5)}
+.ff textarea{resize:vertical;min-height:90px}
+
+/* ── FOOTER ──────────────────────────────────── */
+footer{
+  background:#0A0604;
+  padding:44px 56px 24px;
+  border-top:1px solid rgba(212,98,10,.1);
+}
+.fi{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.05);
+  gap:20px;flex-wrap:wrap;
+}
+.flogo-name{
+  font-family:'DM Serif Display',serif;
+  font-size:1.25rem;color:var(--amber);
+}
+.flogo-sub{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-top:2px}
+.flinks{display:flex;gap:22px;flex-wrap:wrap}
+.flinks a{
+  font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;
+  color:rgba(255,255,255,.32);text-decoration:none;transition:color .2s;
+}
+.flinks a:hover{color:var(--amber)}
+.fb{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:18px;flex-wrap:wrap;gap:10px;
+}
+.fb span{font-size:.7rem;color:rgba(255,255,255,.2)}
+.fb a{font-size:.7rem;color:var(--amber);text-decoration:none}
+
+/* ── ANIMATIONS ──────────────────────────────── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .65s ease,transform .65s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+
+/* ── MOBILE ──────────────────────────────────── */
+@media(max-width:880px){
+  nav{padding:14px 18px}
+  .nav-links,.nav-cta{display:none}
+  section{padding:64px 18px}
+  #hero{padding:0 18px 72px}
+  .hero-yelp{top:88px;right:18px}
+  .svc-top,#about,#contact{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .gi.wide,.gi.tall{grid-column:span 1;grid-row:span 1}
+  .reviews-wrap{grid-template-columns:1fr}
+  .rg{grid-template-columns:1fr}
+  .frow{grid-template-columns:1fr}
+  #trust{flex-wrap:wrap}
+  .tbi{flex:50%}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-icon">
+      <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-7 14l-5-5 1.4-1.4 3.6 3.6 7.6-7.6L21 8l-9 9z"/></svg>
+    </div>
+    <div class="nav-brand">
+      <div class="nav-brand-top">Ramirez Concrete</div>
+      <div class="nav-brand-sub">Norwalk, CA · 18 Years of Excellence</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Projects</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="tel:5626479249">(562) 647-9249</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stripe"></div>
+
+  <div class="hero-yelp">
+    <div class="ystars">★★★★★</div>
+    <div class="ycount">87 Reviews</div>
+    <div class="ysource">Yelp · 1,559 Photos</div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Norwalk, CA · Verified License #1029467</div>
+    <h1>Concrete<br/>Done <em>Right.</em></h1>
+    <p class="hero-sub">18 years of expert concrete work — stamped driveways, patios, walkways, retaining walls, and more. Family-owned, fairly priced, and finished on time.</p>
+    <div class="hero-btns">
+      <a class="btn-amber" href="#contact">Get a Free Estimate</a>
+      <a class="btn-ghost" href="#gallery">View Our Work</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><strong>18</strong><span>Years Experience</span></div>
+      <div class="hstat"><strong>5.0</strong><span>Yelp Rating</span></div>
+      <div class="hstat"><strong>1,559</strong><span>Project Photos</span></div>
+      <div class="hstat"><strong>87+</strong><span>Verified Reviews</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div id="trust">
+  <div class="tbi">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <span>Licensed &amp; Bonded</span>
+  </div>
+  <div class="tbi">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+    <span>Responds in ~1 Hour</span>
+  </div>
+  <div class="tbi">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+    <span>Family-Owned &amp; Operated</span>
+  </div>
+  <div class="tbi">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+    <span>No Deposit Required</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="svc-top reveal">
+    <div>
+      <div class="sec-label">What We Do</div>
+      <h2>Expert Concrete<br/>Services in LA County</h2>
+    </div>
+    <p>Ramirez Concrete specializes in high-quality concrete work for residential properties across the Norwalk and greater Los Angeles area. From decorative stamped finishes to structural foundations — we handle it all.</p>
+  </div>
+  <div class="svc-grid">
+    <div class="svc reveal">
+      <div class="svc-n">01</div>
+      <div class="svc-t">Stamped Concrete</div>
+      <p class="svc-d">Decorative stamped finishes that replicate stone, brick, slate, and tile — beautiful, durable, and cost-effective.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="svc-n">02</div>
+      <div class="svc-t">Driveways</div>
+      <p class="svc-d">New pours and full replacements. Standard broom finish or decorative — completed efficiently and built to last.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="svc-n">03</div>
+      <div class="svc-t">Patios &amp; Backyard Slabs</div>
+      <p class="svc-d">Custom patio designs for outdoor living spaces — smooth, stamped, or colored to match your vision.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="svc-n">04</div>
+      <div class="svc-t">Sidewalks &amp; Walkways</div>
+      <p class="svc-d">New sidewalk installs, city-compliant repairs, and decorative pathways connecting your home's spaces.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="svc-n">05</div>
+      <div class="svc-t">Pool Decks</div>
+      <p class="svc-d">Non-slip, heat-resistant concrete pool surrounds in various finishes — safe, stylish, and long-lasting.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="svc-n">06</div>
+      <div class="svc-t">Retaining Walls</div>
+      <p class="svc-d">Structural concrete retaining walls to manage slopes, prevent erosion, and define outdoor spaces.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="svc-n">07</div>
+      <div class="svc-t">Steps &amp; Stairs</div>
+      <p class="svc-d">Custom concrete stairs for front entries and yard access — finished cleanly and built to code.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="svc-n">08</div>
+      <div class="svc-t">Concrete Demo</div>
+      <p class="svc-d">Old slab removal and site preparation before new pours — done cleanly with full haul-away service.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img-wrap reveal">
+    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Luis Ramirez and team on a concrete project" loading="lazy"/>
+    <div class="about-stamp">
+      <p>"Luis was the ONLY one willing to work within our budget — and the quality exceeded every expectation."</p>
+    </div>
+  </div>
+  <div class="about-text reveal">
+    <div class="sec-label">About Ramirez Concrete</div>
+    <h2 class="w">18 Years of<br/>Craftsmanship &amp;<br/>Honest Pricing</h2>
+    <p>We are a company with 18 years of experience dedicated to specializing in high-quality concrete services in the Norwalk, California area. We have a highly qualified team ready to perform any project that comes our way.</p>
+    <p>Owner Luis Ramirez leads every job personally — visiting sites for estimates, showing up on time, and staying communicative every step of the way. No deposit required before work begins. No surprises on pricing.</p>
+    <div class="owner-block">
+      <div>
+        <div class="owner-name">Luis Ramirez</div>
+        <div class="owner-title">Owner &amp; Lead Craftsman · Norwalk, CA</div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar">Visits every property personally for accurate estimates</div>
+      <div class="pillar">On-time start — crew ready at 7:30 AM sharp</div>
+      <div class="pillar">Clear communication and exact project timelines</div>
+      <div class="pillar">Full site cleanup after every single job</div>
+      <div class="pillar">No deposit required before work begins</div>
+      <div class="pillar">Accepts cash, Zelle, and credit cards</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="sec-label reveal">Our Work</div>
+  <h2 class="w reveal">1,559 Photos on Yelp —<br/>Here's a Sample</h2>
+  <p class="gallery-sub reveal">Driveways, patios, pool decks, and decorative stamped concrete across LA County.</p>
+  <div class="gallery-grid">
+    <div class="gi tall reveal">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80" alt="Stamped concrete driveway" loading="lazy"/>
+      <div class="gi-overlay"><span>Stamped Driveway</span></div>
+    </div>
+    <div class="gi reveal">
+      <img src="https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=700&q=80" alt="Backyard patio" loading="lazy"/>
+      <div class="gi-overlay"><span>Backyard Patio Slab</span></div>
+    </div>
+    <div class="gi reveal">
+      <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=700&q=80" alt="Concrete walkway" loading="lazy"/>
+      <div class="gi-overlay"><span>Front Walkway</span></div>
+    </div>
+    <div class="gi wide reveal">
+      <img src="https://images.unsplash.com/photo-1574359411659-15573a27fd0c?w=1000&q=80" alt="Pool deck" loading="lazy"/>
+      <div class="gi-overlay"><span>Pool Deck Surround</span></div>
+    </div>
+    <div class="gi reveal">
+      <img src="https://images.unsplash.com/photo-1590664863685-a99ef05e9f36?w=700&q=80" alt="Concrete finishing" loading="lazy"/>
+      <div class="gi-overlay"><span>Broom Finish Driveway</span></div>
+    </div>
+    <div class="gi wide reveal">
+      <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1000&q=80" alt="Steps and retaining wall" loading="lazy"/>
+      <div class="gi-overlay"><span>Steps &amp; Retaining Wall</span></div>
+    </div>
+  </div>
+  <p class="gallery-note reveal">
+    See all 1,559 project photos →
+    <a href="https://www.yelp.com/biz/ramirez-concrete-norwalk" target="_blank" rel="noopener">View on Yelp</a>
+  </p>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="reviews-wrap">
+    <div class="rl reveal">
+      <div class="sec-label">Client Reviews</div>
+      <h2>What Clients Say About Luis &amp; the Team</h2>
+      <p>87 five-star reviews on Yelp — and counting. Here's what real homeowners across the LA area have to say.</p>
+      <div class="rating-box">
+        <div class="rating-big">5.0</div>
+        <div class="rating-stars">★★★★★</div>
+        <div class="rating-meta">87 Reviews · Verified License</div>
+        <a class="yelp-btn" href="https://www.yelp.com/biz/ramirez-concrete-norwalk" target="_blank" rel="noopener">Read All Reviews on Yelp</a>
+      </div>
+    </div>
+    <div class="rg">
+      <div class="rc reveal">
+        <div class="rc-stars">★★★★★</div>
+        <p class="rc-text">"Luis and his team are top tier. After talking with multiple contractors, Luis was the ONLY one willing to work within our budget. They made quick work of our driveway and steps — 2 days. Highly recommend."</p>
+        <div class="rc-author">Kyle M.</div>
+        <div class="rc-city">Norwalk, CA</div>
+      </div>
+      <div class="rc reveal">
+        <div class="rc-stars">★★★★★</div>
+        <p class="rc-text">"We re-hired Ramirez Concrete to do more cement work because they did such an amazing job the first time. They came exactly when they said they would and were kind and thorough. HIGHLY recommend!"</p>
+        <div class="rc-author">Sandra T.</div>
+        <div class="rc-city">Long Beach, CA</div>
+      </div>
+      <div class="rc reveal">
+        <div class="rc-stars">★★★★★</div>
+        <p class="rc-text">"Excellent company! Luis was very responsive, professional, and present daily with his crew. They worked efficiently and gave us an accurate timeline. Pricing was very reasonable. Their work speaks for itself."</p>
+        <div class="rc-author">Maria G.</div>
+        <div class="rc-city">Cerritos, CA</div>
+      </div>
+      <div class="rc reveal">
+        <div class="rc-stars">★★★★★</div>
+        <p class="rc-text">"I am extremely happy with the work on my backyard and front yard. The crew is very clean, organized, and completed the project faster than expected. You must see the before-and-after pictures."</p>
+        <div class="rc-author">Robert A.</div>
+        <div class="rc-city">Downey, CA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="ci reveal">
+    <div class="sec-label">Get In Touch</div>
+    <h2 class="w">Get Your<br/>Free Estimate</h2>
+    <p>Send us a few photos of your project area and we'll get back to you fast — usually within an hour. No obligation, no pressure.</p>
+    <div class="cdetail">
+      <div class="cd">
+        <div class="cd-icon">📞</div>
+        <div class="cd-body">
+          <span class="cd-lbl">Call or Text</span>
+          <a class="cd-val" href="tel:5626479249">(562) 647-9249</a>
+        </div>
+      </div>
+      <div class="cd">
+        <div class="cd-icon">💬</div>
+        <div class="cd-body">
+          <span class="cd-lbl">Send Photos To</span>
+          <a class="cd-val" href="sms:5622926147">(562) 292-6147</a>
+        </div>
+      </div>
+      <div class="cd">
+        <div class="cd-icon">🕐</div>
+        <div class="cd-body">
+          <span class="cd-lbl">Hours</span>
+          <span class="cd-val" style="cursor:default">Mon–Sat: 7:00 AM – 7:00 PM</span>
+        </div>
+      </div>
+      <div class="cd">
+        <div class="cd-icon">📍</div>
+        <div class="cd-body">
+          <span class="cd-lbl">Location</span>
+          <span class="cd-val" style="cursor:default">Norwalk, CA 90650</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cf reveal">
+    <h3>Request a Free Quote</h3>
+    <div class="frow">
+      <div class="ff">
+        <label>First Name</label>
+        <input type="text" placeholder="Maria"/>
+      </div>
+      <div class="ff">
+        <label>Last Name</label>
+        <input type="text" placeholder="Garcia"/>
+      </div>
+    </div>
+    <div class="ff">
+      <label>Phone Number</label>
+      <input type="tel" placeholder="(562) 000-0000"/>
+    </div>
+    <div class="ff">
+      <label>Email Address</label>
+      <input type="email" placeholder="maria@email.com"/>
+    </div>
+    <div class="ff">
+      <label>Service Needed</label>
+      <select style="color:rgba(255,255,255,.7);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);width:100%;padding:11px 15px;font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none">
+        <option value="">Select a service…</option>
+        <option>Stamped Concrete</option>
+        <option>Driveway</option>
+        <option>Patio / Backyard Slab</option>
+        <option>Sidewalk / Walkway</option>
+        <option>Pool Deck</option>
+        <option>Retaining Wall</option>
+        <option>Steps / Stairs</option>
+        <option>Concrete Demo</option>
+        <option>Other / Not Sure</option>
+      </select>
+    </div>
+    <div class="ff">
+      <label>Describe Your Project</label>
+      <textarea placeholder="Size of the area, what you're looking for, any other details…"></textarea>
+    </div>
+    <button class="btn-amber" style="width:100%;font-size:.88rem;padding:15px" onclick="alert('Thanks! We\'ll be in touch within the hour.')">Send Request →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fi">
+    <div>
+      <div class="flogo-name">Ramirez Concrete</div>
+      <div class="flogo-sub">Norwalk, CA · License #1029467 · Family-Owned Since 2007</div>
+    </div>
+    <nav class="flinks">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Projects</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="fb">
+    <span>© 2025 Ramirez Concrete. All Rights Reserved. · Serving Norwalk &amp; Greater LA</span>
+    <a href="https://www.yelp.com/biz/ramirez-concrete-norwalk" target="_blank" rel="noopener">★★★★★ 87 Reviews on Yelp</a>
+  </div>
+</footer>
+
+<script>
+const els = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('on'), i * 65);
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.1});
+els.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
